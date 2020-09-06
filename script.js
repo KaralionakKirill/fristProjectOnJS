@@ -9,6 +9,18 @@ let personalMovieDB = {
     private: false
 };
 
+function showMyDB(hidden){
+    if(!hidden){
+        console.log(personalMovieDB);
+    }
+}
+
+function writeYourGenres(){
+    for(let i = 0; i < 3; i++){
+        personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${i + 1}?`, "");
+    }    
+}
+
 function askQuestions() {
     for (let i = 0; i < numberOfFilms; i++) {
         let firstQuestion = prompt("Один из последних просмотренных фильмов?", ""),
@@ -39,5 +51,7 @@ function checkAnswers() {
 
 askQuestions();
 checkAnswers();
+showMyDB(personalMovieDB.private);
+writeYourGenres();
 
 console.log(personalMovieDB);
